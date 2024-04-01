@@ -131,12 +131,10 @@ namespace Datastructure
             {
                 tempStack.Push(stack.Pop());
             }
-
             while (!tempStack.IsEmpty())
             {
                 Console.WriteLine("꺼낸 숫자: " + tempStack.Pop());
             }
-
             // 스택이 비어있는지 확인
             if (stack.IsEmpty())
             {

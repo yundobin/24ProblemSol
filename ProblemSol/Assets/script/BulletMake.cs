@@ -3,19 +3,19 @@ using Datastructure;
 
 public class BulletMake : MonoBehaviour
 {
-    private Queue<GameObject> bulletQueue;
+    private Stack<GameObject> bulletStack; // Queue 대신 Stack 사용
     public GameObject bulletPrefab; // 총알 프리팹
 
     void Start()
     {
-        bulletQueue = new Queue<GameObject>();
+        bulletStack = new Stack<GameObject>(); // Queue 대신 Stack으로 변경
 
-        // 10개의 Bullet을 Queue에 넣기
+        // 10개의 Bullet을 Stack에 넣기
         for (int i = 0; i < 10; i++)
         {
             GameObject bullet = Instantiate(bulletPrefab); // Bullet 프리팹을 인스턴스화
             bullet.SetActive(false); // 초기에는 비활성화 상태로 설정
-            bulletQueue.Enqueue(bullet); // Queue에 추가
+            bulletStack.Push(bullet); // Stack에 추가 (Enqueue 대신 Push 사용)
         }
     }
 
@@ -30,9 +30,9 @@ public class BulletMake : MonoBehaviour
 
     public void ShootBullet()
     {
-        if (bulletQueue.Count() > 0)
+        if (!bulletStack.IsEmpty()) // IsEmpty 메서드 사용
         {
-            GameObject bullet = bulletQueue.Dequeue();
+            GameObject bullet = bulletStack.Pop(); // Dequeue 대신 Pop 사용
             bullet.SetActive(true);
             // Bullet 이동 등 추가적인 동작이 필요하다면 여기에 추가
         }
@@ -46,6 +46,6 @@ public class BulletMake : MonoBehaviour
     public void ReturnBullet(GameObject bullet)
     {
         bullet.SetActive(false); // 총알을 비활성화하여 재사용 가능한 상태로 변경
-        bulletQueue.Enqueue(bullet); // Queue에 다시 추가
+        bulletStack.Push(bullet); // Queue 대신 Stack 사용 (Enqueue 대신 Push 사용)
     }
 }

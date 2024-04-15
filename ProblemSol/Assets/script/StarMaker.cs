@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class StaticMeshGen : MonoBehaviour
 {
+    public Material toonMaterial;
+    
     void Start()
     {
         Mesh mesh = new Mesh();
@@ -78,15 +80,12 @@ public class StaticMeshGen : MonoBehaviour
 
         mesh.triangles = starpillar;
 
-        MeshFilter mf = this.AddComponent<MeshFilter>();
-        MeshRenderer mr = this.AddComponent<MeshRenderer>();
+        MeshFilter mf = gameObject.AddComponent<MeshFilter>();
+        MeshRenderer mr = gameObject.AddComponent<MeshRenderer>();
 
         mf.mesh = mesh;
 
-        Material yellowMaterial = new Material(Shader.Find("Custom/YellowShader"));
-        yellowMaterial.color = new Color(1, 1, 0, 1);
-
-        mr.material = yellowMaterial;
+        mr.material = toonMaterial;
     }
     void Update()
     {

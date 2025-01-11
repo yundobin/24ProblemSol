@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 914f2a67e3b04e44c97ddf1c0f063d9b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - csvFile: {fileID: 4900000, guid: 7f43884d53dfe5344bba285d64b546f9, type: 3}
+  - sWall: {fileID: 3728810211074386722, guid: fa7941839d6d87a4f9d231439b5e6013, type: 3}
+  - bWall: {fileID: 25716904513473728, guid: da1cfbfe4eedb2d44aae9f1906b2d79d, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
